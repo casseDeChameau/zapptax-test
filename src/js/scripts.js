@@ -1,6 +1,8 @@
 //* :::::::::::::::::::::::::::::::::::::: VAR
 //general
 let board = document.querySelector('.board');
+let menuBoards = document.querySelector('.ddm-1');
+let boardList = document.querySelector('.boards-list');
 //list
 let listArr, removeListArr = []
 let listTitleSetter = document.querySelector('.list-title-setter');
@@ -49,7 +51,6 @@ function updateArrays() {
     return listArr, removeListArr, removeCardArr, cardSetterArr, addCardArr, addCardTitleArr;
 }
 
-
 function addList() {
     if (listTitleSetter.value != '') {
         let div = document.createElement('div')
@@ -79,8 +80,6 @@ function addList() {
     }
 }
 
-function removeCard() {}
-
 function addCard() {
     let thisEvent = event.target;
     let cardContainer = (thisEvent.parentNode.parentNode.parentNode).nextElementSibling;
@@ -107,47 +106,22 @@ function addCard() {
         updateArrays();
     }
 }
+
+function showBoards(e, t) {
+    if (event.type == 'mouseover') {
+        boardList.classList.add('show');
+    } else if (event.type == 'mouseleave') {
+        boardList.classList.remove('show');
+    }
+}
 //* :::::::::::::::::::::::::::::::::::::: APP
 window.onload = updateArrays();
+//? SHOW BOARDS
+menuBoards.addEventListener('mouseover', showBoards);
+menuBoards.addEventListener('mouseleave', showBoards);
 //? ADD LIST
 addListTitle.addEventListener('click', toggleInput);
 addListBtn.addEventListener('click', addList);
 // remove --> called from updateArrays() called from addList() 
-
 //? ADD CARD
 // dynamic because doesn't exist onload yet --> called form updateArray()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let listDiv = document.createElement('div');
-// let headerDiv = document.createElement('div');
-// let cardContainerDiv = document.createElement('div');
-// let cardDiv = document.createElement('div');
-// let cardTitle = document.createElement('div');
-// let cardPopup = document.createElement('div');
-// let cardBtn = document.createElement('div');
-// let cardRemoveBtn = document.createElement('div');
-// let listBtn = document.createElement('div');
-// let listRemoveBtn = document.createElement('div');

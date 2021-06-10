@@ -1,5 +1,6 @@
 .header {
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 0;
     width: 100vw;
@@ -56,12 +57,38 @@
             padding: 0 1rem;
         }
         .option-nav {
-            @include flex($jc: flex-start);
+            @include flex($jc: flex-start, $ai: flex-start);
             ul {
                 display: none;
+                transition: .2s ease-in-out;
+            }
+            .drop-down-menu {
+                ul {
+                    background-color: rgba(255, 255, 255, .8);
+                    padding: .5rem;
+                    border-radius: 3px;
+                    position: absolute;
+                    li {
+                        border-bottom: 1px solid lightgrey;
+                        padding: .3rem;
+                        &:hover {
+                            background-color: rgba($color: lightgrey, $alpha: 1.0);
+                        }
+                    }
+                }
             }
             span {
                 @include transp-btn;
+            }
+            .ddm-1 {
+                .drop-down-menu-btn {
+                    cursor: pointer;
+                }
+                .boards-list {
+                    &.show {
+                        display: block;
+                    }
+                }
             }
             .board-info {
                 @include flex;
@@ -81,6 +108,35 @@
             }
             .ddm-3 i {
                 padding-right: .5rem;
+            }
+            .board-member {
+                ul {
+                    // width: 100px;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    li {
+                        position: relative;
+                        border: 2px solid white;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        background-color: white;
+                        width: 25px;
+                        height: 25px;
+                        box-shadow: 2px 0 0 rgba(0, 0, 0, .4);
+                        margin-right: -5px;
+                        img {
+                            object-fit: contain;
+                            max-width: 100%;
+                            max-height: 100%;
+                            padding: .2rem;
+                        }
+                        @for $i from 1 through 5 {
+                            &:nth-child(#{$i}) {
+                                z-index: $i;
+                            }
+                        }
+                    }
+                }
             }
             .side-menu {
                 margin-left: auto;
