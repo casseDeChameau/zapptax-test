@@ -1,0 +1,29 @@
+@mixin flex($d: row, $w:wrap, $jc: center, $ai: center) {
+    display: flex;
+    flex-direction: $d;
+    flex-wrap: $w;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin hlAll {
+    & * {
+        border: 2px dotted magenta;
+    }
+}
+
+@mixin hlChild {
+    &>* {
+        border: 2px dotted magenta;
+    }
+}
+
+@mixin transp-btn {
+    outline: none;
+    border: none;
+    border-radius: 2.5px;
+    padding: .4rem .8rem;
+    font-size: 0.8rem;
+    color: white;
+    background-color: rgba(255, 255, 255, .3);
+}

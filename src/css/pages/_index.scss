@@ -1,0 +1,131 @@
+.board-container {
+    position: fixed;
+    width: 100vw;
+    height: calc(100vh - 5rem);
+    top: 5rem;
+    overflow-y: scroll;
+    @include flex($d: row, $ai: flex-start, $jc: flex-start, $w: nowrap);
+    .board {
+        height: 100%;
+        padding: .5rem;
+        @include flex($jc: flex-start, $ai: flex-start, $w: nowrap);
+        .list {
+            position: relative;
+            width: 250px;
+            background-color: rgb(225, 225, 225);
+            border-radius: 3px;
+            padding: 0 .5rem .5rem .5rem;
+            margin-right: .5rem;
+            cursor: default;
+            max-height: 100%;
+            overflow-y: scroll;
+            .list-header {
+                height: 1rem;
+                position: sticky;
+                top: 0;
+                background-color: rgb(225, 225, 225);
+                z-index: 2;
+                height: 100%;
+                padding: .5rem;
+                @include flex($jc: space-between, $w: nowrap);
+                .add-card-title {
+                    text-align: right;
+                    font-size: 0.8rem;
+                    color: darkgrey;
+                    cursor: pointer;
+                    &:hover {
+                        color: grey;
+                    }
+                }
+            }
+            .card {
+                position: relative;
+                background-color: #fff;
+                border-radius: 3px;
+                padding: .5rem;
+                margin-bottom: .5rem;
+                box-shadow: 0 1px 0 grey;
+                cursor: pointer;
+                .card-btn {
+                    height: 1rem;
+                    @include flex($jc: flex-end);
+                }
+                &:hover {
+                    .card-remove,
+                    .add-card-title {
+                        visibility: visible;
+                        transition: .3s ease-in-out;
+                    }
+                }
+                .card-title {
+                    font-size: 0.8rem;
+                    line-height: 1.3rem;
+                    font-weight: 400;
+                }
+                .card-popup {
+                    display: none;
+                }
+            }
+            .list-btn {
+                height: 1rem;
+                @include flex($jc: flex-end);
+                transition: .3s ease-in-out;
+                &:hover {
+                    .list-remove {
+                        visibility: visible;
+                        transition: .3s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+    .add-list-title {
+        color: rgba($color: white, $alpha: .8);
+        padding-left: 1rem;
+        cursor: pointer;
+        &:hover {
+            color: white;
+        }
+    }
+    .setter-container {
+        width: 160px;
+        .setter {
+            display: none;
+            padding: .5rem;
+            justify-content: flex-end;
+            .title-setter {
+                font-size: 0.7rem;
+                &::placeholder {
+                    color: rgb(200, 200, 200);
+                }
+                border: none;
+                background-color: transparent;
+                border-bottom: 1px solid rgb(200, 200, 200);
+                outline: none;
+                width: 100px;
+            }
+            .submit {
+                font-size: 0.8rem;
+                border: none;
+                padding: .1rem;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
+                color: darkgrey;
+                cursor: pointer;
+            }
+            &.list-setter {
+                .title-setter::placeholder,
+                .submit {
+                    color: white;
+                }
+                .title-setter {
+                    border-bottom: 1px solid white;
+                }
+            }
+            &.show {
+                display: flex;
+            }
+        }
+    }
+}

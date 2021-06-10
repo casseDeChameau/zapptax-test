@@ -1,0 +1,98 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 5rem;
+    background: transparent;
+    color: white;
+    .header-top {
+        height: 50%;
+        padding: .3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, .5);
+        .main-nav {
+            @include flex;
+            width: 100%;
+            .main-nav-left {
+                margin-right: auto;
+                ul {
+                    @include flex;
+                    a {
+                        padding: .5rem;
+                        color: white;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+            .main-nav-mid {
+                @include flex;
+                opacity: .6;
+                font-size: 1.2rem;
+                i {
+                    margin-right: .66rem;
+                }
+            }
+            .main-nav-right {
+                margin-left: auto;
+                button {
+                    @include transp-btn;
+                    font-weight: 600;
+                    a {
+                        color: white;
+                    }
+                    &:first-child {
+                        background-color: green;
+                    }
+                }
+            }
+        }
+    }
+    .header-bot {
+        height: 50%;
+        padding: .3rem;
+        .option-nav>* {
+            padding: 0 1rem;
+        }
+        .option-nav {
+            @include flex($jc: flex-start);
+            ul {
+                display: none;
+            }
+            span {
+                @include transp-btn;
+            }
+            .board-info {
+                @include flex;
+                h2 {
+                    font-size: 1.2rem;
+                    margin-right: 1rem;
+                }
+                .tag {
+                    @include transp-btn;
+                    text-transform: uppercase;
+                    background-color: rgba(255, 255, 255, .8);
+                    color: black;
+                    font-weight: 500;
+                    font-size: 0.66rem;
+                    padding: .2rem .4rem;
+                }
+            }
+            .ddm-3 i {
+                padding-right: .5rem;
+            }
+            .side-menu {
+                margin-left: auto;
+                @include transp-btn;
+                .side-menu-btn::before {
+                    content: '•••';
+                    padding-right: 1rem;
+                }
+                .side-menu-panel {
+                    display: none;
+                }
+            }
+        }
+    }
+}

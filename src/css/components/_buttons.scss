@@ -1,0 +1,17 @@
+.btn-ico {
+    width: 1rem;
+    height: 1rem;
+    @include flex;
+    border-radius: 50%;
+    border: 1px solid grey;
+    color: grey;
+    font-size: 0.7rem;
+    visibility: hidden;
+    margin: 0 .2rem;
+    transition: .3s ease-in-out;
+    &:hover {
+        border: 1px solid black;
+        color: black;
+        transition: .3s ease-in-out;
+    }
+}
